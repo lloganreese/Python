@@ -1,11 +1,17 @@
-import sys
+import six
 import yfinance as yf
 
 stockSymbol = input("Enter your stock: ")
 
+if stockSymbol.isalpha():
+    print("boobies")
+else:
+    print("Please enter an actual ticker.")
+
+
 tickerData = yf.Ticker(stockSymbol)
 
-tickerDf = tickerData.history(period='1d', start='2020-1-1', end='2020-1-24')
+tickerDf = tickerData.history(period='1d')
 
 print(tickerDf)
 
